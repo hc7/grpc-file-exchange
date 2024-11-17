@@ -1,5 +1,6 @@
 *.o
 *.pb.*
 data/
+.build/
 file_exchange_client
 file_exchange_server

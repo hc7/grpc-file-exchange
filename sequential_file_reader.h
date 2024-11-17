@@ -28,7 +28,7 @@ public:
 
 protected:
     // Constructor. Attempts to open the file, and throws std::system_error if it fails to do so.
-    SequentialFileReader(const std::string& file_name);
+    SequentialFileReader(const std::string& filePath);
 
     // TODO: Also provide a constructor that doesn't open the file, and a separate Open method.
 

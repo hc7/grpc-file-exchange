@@ -2,7 +2,10 @@
 
 #include <cstdint>
 #include <string>
+#if _WIN32 || _WIN64
+#else
 #include "sys/errno.h"
+#endif
 
 #include "sequential_file_reader.h"
 #include "messages.h"

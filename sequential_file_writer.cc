@@ -3,7 +3,11 @@
 #include <stdexcept>
 #include <cstdio>
 #include <sstream>
+#if _WIN32 || _WIN64
+#include <cerrno>
+#else
 #include <sys/errno.h>
+#endif
 
 #include "utils.h"
 #include "sequential_file_writer.h"

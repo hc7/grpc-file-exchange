@@ -7,8 +7,10 @@
 #include <cstdint>
 #include <utility>
 #include <cassert>
+#if _WIN32 || _WIN64
+#else
 #include <sysexits.h>
-
+#endif
 #include <grpc/grpc.h>
 #include <grpc++/channel.h>
 #include <grpc++/client_context.h>
@@ -113,7 +115,11 @@ private:
 void usage [[ noreturn ]] (const char* prog_name)
 {
     std::cerr << "USAGE: " << prog_name << " [put|get] num_id [filename]" << std::endl;
+#if _WIN32 || _WIN64
+    std::exit(EXIT_SUCCESS);
+#else
     std::exit(EX_USAGE);
+#endif    
 }
 
 int main(int argc, char** argv)
@@ -152,5 +158,9 @@ int main(int argc, char** argv)
         usage(argv[0]);
     }
 
+#if _WIN32 || _WIN64
+    return succeeded ? EXIT_SUCCESS : EXIT_FAILURE;
+#else
     return succeeded ? EX_OK : EX_IOERR;
+#endif    
 }

@@ -1,0 +1,34 @@
+{
+    "version": 8,
+    "configurePresets": [
+        {
+            "name": "Visual Studio Community 2019 Release - x86",
+            "displayName": "Visual Studio Community 2019 Release - x86",
+            "description": "Using compilers for Visual Studio 16 2019 (x86 architecture)",
+            "generator": "Visual Studio 16 2019",
+            "toolset": "host=x86",
+            "architecture": "win32",
+            "binaryDir": "${sourceDir}/.build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_INSTALL_PREFIX": "${userHome}/cmake",
+                "OPENSSL_ROOT_DIR": "D:/Users/2user/git1/.build/OpenSSL-Win32",
+                "CMAKE_C_COMPILER": "cl.exe",
+                "CMAKE_CXX_COMPILER": "cl.exe"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "Visual Studio Community 2019 Release - x86-debug",
+            "displayName": "Visual Studio Community 2019 Release - x86 - Debug",
+            "configurePreset": "Visual Studio Community 2019 Release - x86",
+            "configuration": "Debug"
+        },
+        {
+            "name": "Visual Studio Community 2019 Release - x86-release",
+            "displayName": "Visual Studio Community 2019 Release - x86 - Release",
+            "configurePreset": "Visual Studio Community 2019 Release - x86",
+            "configuration": "Release"
+        }
+    ]
+}
